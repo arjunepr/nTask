@@ -1,0 +1,8 @@
+{
+  "name": "nTask",
+  "version": "0.0.1",
+  "description": "A simple app.",
+  "main": "index.js",
+  "author": "Arjun Raju Pillai <revarjunr@gmail.com>",
+  "license": "MIT"
+}
