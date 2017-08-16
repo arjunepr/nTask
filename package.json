@@ -4,5 +4,10 @@
   "description": "A simple app.",
   "main": "index.js",
   "author": "Arjun Raju Pillai <revarjunr@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.25.0",
+    "babel-preset-env": "^1.6.0"
+  }
 }
