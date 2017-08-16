@@ -1,3 +1,6 @@
+'use strict';
+require('dotenv').config();
+require('./global');
 const mdConfig = require('./middlewareConfig');
 const networkConfig = require('./networkConfig');
 const tolerance = require('./tolerance');
