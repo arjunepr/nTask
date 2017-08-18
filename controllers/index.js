@@ -1,0 +1,1 @@
+exports.TasksCtrl = require('./TasksCtrl');
