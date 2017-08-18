@@ -1,6 +1,6 @@
-module.exports = function(app){
-  const http = require('http');
+const http = require('http');
 
+module.exports = function(app){
   const server = http.createServer(app);
 
   server.listen(app.get('port'), () => {
