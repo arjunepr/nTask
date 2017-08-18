@@ -11,6 +11,6 @@ BaseRouter.get('/', (req, res) => {
   LOG('You have succeeded.');
 });
 
-BaseRouter.use('/articles', tasksRoute);
+BaseRouter.use('/tasks', tasksRoute);
 
 module.exports = BaseRouter;

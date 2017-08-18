@@ -1,4 +1,4 @@
-exports.default = {
+module.exports = {
   getTasks(req, res, next){
     res.json({
       tasks: [

@@ -3,6 +3,6 @@ const Express = require('express');
 
 const TasksRouter = Express.Router();
 
-TasksRouter.get('/', TaslCtrl.getTasks);
+TasksRouter.get('/', TasksCtrl.getTasks);
 
 module.exports = TasksRouter;

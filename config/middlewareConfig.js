@@ -1,7 +1,7 @@
 'use strict';
-const routes = require('../routes');
+const routers = require('../routers');
 module.exports = function(app){
   app.set('port', 3000);
-  app.use(routes);
+  app.use(routers);
   return app;
 };
