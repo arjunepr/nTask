@@ -1,4 +1,3 @@
-'use strict';
 require('./global');
 const mdConfig = require('./middlewareConfig');
 const networkConfig = require('./networkConfig');

@@ -1,13 +1,12 @@
-'use strict';
+/* global LOG */
+const ON_DEATH = require('death')({ uncaughtException: true });
 
-const ON_DEATH = require('death')({uncaughtException: true});
-
-module.exports = function(server){
+module.exports = function cleanUp(server) {
   return ON_DEATH((signal, err) => {
-    if(err){
+    if (err) {
       console.error(err);
-    };
+    }
 
     server.close(() => LOG('Server closing... '));
   });
-}
+};

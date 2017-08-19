@@ -1,5 +1,6 @@
-'use strict';
+/* global LOG */
 const Express = require('express');
+
 const BaseRouter = Express.Router();
 
 // Routers
