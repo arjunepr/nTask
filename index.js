@@ -1,9 +1,15 @@
 require('dotenv').config();
 const Express = require('express');
-const config = require('./api/config');
+const consign = require('consign');
 
 const app = Express();
 
-const server = config(app);
+consign({ cwd: 'api' })
+  .then('libs/globals.js')
+  .then('libs/db.js')
+  .then('libs/middlewares.js')
+  .then('routers')
+  .then('libs/boot.js')
+  .into(app);
 
-module.exports = server;
+module.exports = app.server;

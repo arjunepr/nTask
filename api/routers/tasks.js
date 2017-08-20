@@ -1,8 +1,22 @@
-const { TasksCtrl } = require('../controllers');
-const Express = require('express');
+const TasksCtrl = require('../controllers/TasksCtrl');
 
-const TasksRouter = Express.Router();
+const taskRoute = '/tasks/';
 
-TasksRouter.get('/', TasksCtrl.getTasks);
+module.exports = (app) => {
+  const Ctrl = TasksCtrl(app);
 
-module.exports = TasksRouter;
+  app.route(taskRoute)
+    .all(Ctrl.cleanTheBody)
+    .get(Ctrl.getTasks);
+
+  app.route(`${taskRoute}:id`)
+    .all(Ctrl.cleanTheBody)
+    .get((req, res) => {
+      res.json({
+        status: 'OKAY',
+      });
+    })
+    .post(Ctrl.createTask)
+    .put(Ctrl.updateTask)
+    .delete(Ctrl.deleteTask);
+};

@@ -3,11 +3,11 @@ const { join } = require('path');
 const _ = require('lodash');
 const Sequelize = require('sequelize');
 
-const { database, username, password, params } = require('./dbConfig');
+const { database, username, password, params } = require('../config/dbConfig');
 
 let db = null;
 
-module.exports = function setupDb() {
+module.exports = () => {
   if (!db) {
     const sequelize = new Sequelize(
       database,
