@@ -1,6 +1,8 @@
+/* global LOG */
+
 const http = require('http');
 
-module.exports = function(app){
+module.exports = function networkConfig(app) {
   const server = http.createServer(app);
 
   server.listen(app.get('port'), () => {
@@ -8,4 +10,4 @@ module.exports = function(app){
   });
 
   return server;
-}
+};

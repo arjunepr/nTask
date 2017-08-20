@@ -1,3 +1,3 @@
-module.exports = (function(){
+module.exports = (function globalConfig() {
   global.LOG = process.env.NODE_ENV === 'DEVELOPMENT' ? console.log : () => null;
-})();
+}());
