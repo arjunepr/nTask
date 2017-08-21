@@ -17,21 +17,22 @@ module.exports = (app) => {
 
     createTask(req, res) {
       const { body } = req;
-      return TasksHelper(app).createTask(body, res);
+      console.log(body);
+      return TasksHelper.createTask(body, res);
     },
 
     findTask(req, res) {
-      return TasksHelper(app).findTask(req, res);
+      return TasksHelper.findTask(req.params.id, res);
     },
 
     updateTask(req, res) {
       const { body, params } = req;
-      return TasksHelper(app).updateTask(body, params, res);
+      return TasksHelper.updateTask(body, params, res);
     },
 
     deleteTask(req, res) {
       const { params } = req;
-      return TasksHelper(app).deleteTask(params, res);
+      return TasksHelper.deleteTask(params, res);
     },
   };
 };

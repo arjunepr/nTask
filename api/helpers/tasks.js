@@ -1,45 +1,39 @@
+const { handleSuccess, handleError, noResult } = require('./handlers');
+
 module.exports = (app) => {
   const { Tasks } = app.libs.db.models;
 
   return {
     getAllTasks(res) {
       return Tasks.findAll({})
-        .then((tasks) => {
-          res.json(tasks);
-        })
-        .catch((err) => {
-          res.status(412).json({ msg: err.message });
-        });
+        .then(handleSuccess(res))
+        .catch(handleError(res));
+    },
+
+    findTask(id, res) {
+      Tasks.findById(id, {
+        attributes: ['id', 'description', 'done'],
+      })
+      .then(handleSuccess(res))
+      .catch(handleError(res));
     },
 
     createTask(taskBody, res) {
       return Tasks.create(taskBody)
-        .then((task) => {
-          res.json(task);
-        })
-        .catch((err) => {
-          res.status(412).json({ msg: err.message });
-        });
+        .then(handleSuccess(res))
+        .catch(handleError(res));
     },
 
     updateTask(newBody, findParams, res) {
       return Tasks.update(newBody, { where: findParams })
-        .then(() => {
-          res.sendStatus(204);
-        })
-         .catch((err) => {
-           res.status(412).json({ msg: err.message });
-         });
+        .then(noResult(res))
+         .catch(handleError(res));
     },
 
     deleteTask(params, res) {
       return Tasks.destroy({ where: params })
-        .then(() => {
-          res.sendStatus(204);
-        })
-        .catch((err) => {
-          res.status(412).json({ msg: err.message });
-        });
+        .then(noResult(res))
+        .catch(handleError(res));
     },
   };
 };

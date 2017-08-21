@@ -9,12 +9,7 @@ let db = null;
 
 module.exports = () => {
   if (!db) {
-    const sequelize = new Sequelize(
-      database,
-      username,
-      password,
-      params,
-    );
+    const sequelize = new Sequelize(database, username, password, params);
 
     db = {
       sequelize,

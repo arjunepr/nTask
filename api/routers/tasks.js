@@ -6,17 +6,11 @@ module.exports = (app) => {
   const Ctrl = TasksCtrl(app);
 
   app.route(taskRoute)
-    .all(Ctrl.cleanTheBody)
-    .get(Ctrl.getTasks);
+    .get(Ctrl.getTasks)
+    .post(Ctrl.createTask);
 
   app.route(`${taskRoute}:id`)
-    .all(Ctrl.cleanTheBody)
-    .get((req, res) => {
-      res.json({
-        status: 'OKAY',
-      });
-    })
-    .post(Ctrl.createTask)
+    .get(Ctrl.findTask)
     .put(Ctrl.updateTask)
     .delete(Ctrl.deleteTask);
 };
