@@ -1,4 +1,7 @@
+const JwtSecret = process.env.JWT_SECRET;
+const JwtSession = { session: false };
+
 module.exports = {
-  jwtSecret: process.env.JWT_SECRET,
-  jwtSession: { session: false },
+  JwtSecret,
+  JwtSession,
 };

@@ -6,7 +6,7 @@ module.exports = (app) => {
   const { Users } = app.libs.db.models;
   const params = {
     secretOrKey: JwtSecret,
-    jwtFromRequest: ExtractJwt.fromAuthHeader()
+    jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
   };
   const strategy = new Strategy(params, (payload, done) => {
     Users.findById(payload.id)
@@ -25,7 +25,7 @@ module.exports = (app) => {
   passport.use(strategy);
 
   return {
-    initiailize() {
+    initialize() {
       return passport.initialize();
     },
     authenticate() {
